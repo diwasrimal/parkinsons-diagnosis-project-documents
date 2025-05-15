@@ -1,0 +1,53 @@
+# show-today: true
+# Either month or day
+viewport-snap: day
+# Can include `year`, `month`, `week`, or `day`
+headers:
+  - month
+  - week
+# A start date. Not required.
+start: 2025-05-16
+# An end date. Not required.
+# end: 2025-03-31
+taskgroups:
+  - name: Research
+    tasks:
+      - name: Read Whitepapers
+        start: 2025-05-16
+        end: 2025-05-22
+        # done: 2024-11-29
+  - name: Designing
+    tasks:
+      - name: Architectural design
+        start: 2025-05-22
+        end: 2025-05-27
+      - name: UI design
+        start: 2025-05-25
+        end: 2025-05-30
+  - name: Development
+    tasks:
+        - name: ML model
+          start:  2025-05-28
+          end:  2025-06-10
+        - name: Web app
+          start:  2025-06-07
+          end:  2025-06-15
+  - name: Testing & Debugging
+    tasks:
+      - name: System Testing
+        start: 2025-06-15
+        end: 2025-06-25
+  - name: Documentation & Report
+    tasks:
+      - name: Documentation
+        start: 2025-05-30
+        end: 2025-06-30
+      - name: Report
+        start: 2025-06-30
+        end: 2025-07-12
+        
+milestones:
+  # - name: 1st Draft Hand In
+  #   date: 2025-06-20
+  - name: Final Hand In
+    date: 2025-07-15
