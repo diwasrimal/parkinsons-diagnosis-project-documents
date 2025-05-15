@@ -14,7 +14,7 @@ taskgroups:
     tasks:
       - name: Read Whitepapers
         start: 2025-05-16
-        end: 2025-05-22
+        end: 2025-07-12
         # done: 2024-11-29
   - name: Designing
     tasks:
@@ -40,7 +40,7 @@ taskgroups:
   - name: Documentation & Report
     tasks:
       - name: Documentation
-        start: 2025-05-30
+        start: 2025-05-16
         end: 2025-06-30
       - name: Report
         start: 2025-06-30

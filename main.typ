@@ -47,7 +47,8 @@
   #set text(size: 14pt, weight: "bold")
   #it
 ]
-#show heading.where(level: 3): it => block(spacing: line_spacing)[
+
+#show heading.where(level: 3): it => block(spacing: first_heading_spacing)[
   #set text(size: 13pt, weight: "bold")
   #it
 ]
@@ -56,13 +57,16 @@
   #it
 ]
 
+#set figure(numbering: num => 
+  (counter(heading).get() + (num,)).map(str).join("."))
+
 // Cover page
 #align(center+horizon)[
   #set par(leading: 1.5em)
   #text(size: 14pt)[*A Project Proposal On*]\
   #text(size: 20pt)[*Early Parkinson's Detection from \ Voice Dysphonia*]
   #v(1.2cm)
-  #image("pu_logo_older.png", width: 30%)
+  #image("img/pu_logo_older.png", width: 30%)
   #v(1.2cm)
   #text(size: 14pt)[
     Submitted in the Partial Fulfillment of the\
@@ -93,8 +97,12 @@
 = ABSTRACT
 We are building a machine learning model that helps early diagnosis of the Parkinson's disease. Parkinson's disease is a neurological disorder that affects the human body's motor capabilities. Although motor symptoms can help diagnose the disease in earlier stages, checks of such symptoms require presence of a health professional. It would be helpful if one could check themselves how likely they may be having early symptoms of Parkinson's. We are considering the fact that one of the early symptoms of the Parkinson's also includes degradation of person's voice, and using this fact to build a binary classification machine learning model that helps its early diagnosis by taking as input the voice of the person. This can benefit the medical industry as well as normal people, who can't afford regular visits to health professionals. We plan to train the model using existent data, then also create a user interface where users can input their voice and check the likelihood of them having early Parkinson's symptoms.
 
+\
+*Key Words*: _Parkinson's Disease, Machine Learning, Voice Analysis_
+
 #pagebreak()
 = TABLE OF CONTENTS
+
 #outline(title: none)
 
 #pagebreak()
@@ -145,22 +153,21 @@ Parkinson’s Disease is a disorder that affects movement and speech. In the ear
 Parkinson’s Disease is often diagnosed at a later stage because early symptoms are difficult to detect.Traditional methods can be costly, time-consuming, and require a clinical setting. There is a need for a simple, low-cost, and non-invasive method to detect Parkinson’s at an early stage. This project aims to solve that problem by using voice analysis and machine learning to identify early signs of the disease.
 
 ==  Objectives
+The objectives of this project are as follows:
 - To build an intelligent system that takes voice input, extracts acoustic features (like jitter, shimmer, and HNR), and uses machine learning to predict the likelihood of Parkinson’s Disease.
+- To enable people to check early stages of Parkinson's Disease in remote areas where access to medical facilities might be limited.
 
 ==  Applications
-
-// todo: hya topic haru lai bold garne ra ?? "Medical Screening" jasto - diwas
-// Khai k ho tyo ta, gare ni huni hola ni budo le deko ma ta kei vnexaina tyo bare ta - nischal
-// nagari xodam na ta ahile lai, chaiye garam la, yettikai ni ramrai dekhexa - diwas
-- Medical Screening: Helps doctors with early detection of Parkinson’s Disease using voice tests.
-- Remote Health Monitoring: Useful for patients in rural or remote areas where access to neurologists is limited.
-- Self-Assessment Tool: Individuals can check for early signs of Parkinson’s at home using a computer or mobile device.
+The applications of this project are:
+- *Medical Screening:* Helps doctors with early detection of Parkinson’s Disease using voice tests.
+- *Remote Health Monitoring:* Useful for patients in rural or remote areas where access to neurologists is limited.
+- *Self-Assessment Tool:* Individuals can check for early signs of Parkinson’s at home using a computer or mobile device.
 
 == Project Features
-- Voice Input: Users can record or upload their voice for analysis.
-- Feature Extraction: The system extracts acoustic features like jitter, shimmer, and HNR from the voice.
-- Prediction: The system predicts the likelihood of Parkinson’s Disease based on voice patterns using machine learning.
-- Web Interface: A user-friendly, web-based platform to make the process simple and accessible.
+- *Voice Input:* Users can record or upload their voice for analysis.
+- *Feature Extraction:* The system extracts acoustic features like jitter, shimmer, and HNR from the voice.
+- *Prediction:* The system predicts the likelihood of Parkinson’s Disease based on voice patterns using machine learning.
+- *Web Interface:* A user-friendly, web-based platform to make the process simple and accessible.
 
 == Feasibility Analysis
 === Economic Feasibility
@@ -173,26 +180,24 @@ The technologies required (Python, Scikit-learn, Parselmouth, Flask) are reliabl
 The system is easy to use and accessible through a web interface, making it suitable for both medical professionals and general users. It can be implemented on a large scale, especially in health camps or remote monitoring scenarios. The system requires minimal training for users, ensuring a smooth adoption process.
 
 == System Requirement
-// note: yo pardaina hola hai comment handiye - diwas
-// This project requires a computer system capable of handling basic machine learning operations and voice analysis. The following are the necessary system requirements for development and usage.
 
 === Software Requirement
-- Operating system: Windows / macOS / Linux
-- Programming language: Python 3.x
-- Python libraries:
+- *Operating system:* Windows / macOS / Linux
+- *Programming language:* Python 3.10+
+- *Python libraries:*
   - numpy, pandas – for data handling
   - scikit-learn – for machine learning
   - parselmouth – for speech feature extraction
   - librosa – for advanced audio processing
   - matplotlib, seaborn – for visualization
   - streamlit or Flask – for building the web interface
-- Web Browser: Chrome, Firefox, or any modern browser
+- *Web Browser:* Chrome, Firefox, or any modern browser
 
 === Hardware Requirement
-- Processor: Minimum dual-core CPU (Intel i3 or equivalent)
-- RAM: Minimum 4 GB (8 GB recommended for smoother performance)
-- Storage: At least 500 MB of free disk space
-- Microphone: Decent-quality microphone (minimum 44.1 kHz sampling rate recommended) for recording clear voice samples
+- *Processor:* Minimum dual-core CPU (Intel i3 or equivalent)
+- *RAM:* Minimum 4 GB (8 GB recommended for smoother performance)
+- *Storage:* At least 500 MB of free disk space
+- *Microphone:* Decent-quality microphone (minimum 44.1 kHz sampling rate recommended) for recording clear voice samples
 
 #pagebreak()
 = CHAPTER 2 \ LITERATURE REVIEW
@@ -228,10 +233,10 @@ biomedical voice measurements.
 
 == Data Preprocessing
 Before training the machine learning model, the collected dataset undergoes several preprocessing steps to ensure data quality and model performance:
-  - Handling Missing Values: Checked for any missing or null values in the dataset and applied imputation techniques if needed.
-  - Normalization/Scaling: Since the dataset contains features with different units and ranges, normalization (e.g., Min-Max Scaling or Standardization) is applied to bring all features to a similar scale, improving model performance.
-  - Label Encoding: If categorical values like gender are used, they are converted into numeric format using encoding techniques.
-  - Train-Test Split: The dataset is divided into training and testing sets (e.g., 80% training, 20% testing) to evaluate model performance on unseen data.
+  - *Handling Missing Values:* Checked for any missing or null values in the dataset and applied imputation techniques if needed.
+  - *Normalization/Scaling:* Since the dataset contains features with different units and ranges, normalization (e.g., Min-Max Scaling or Standardization) is applied to bring all features to a similar scale, improving model performance.
+  - *Label Encoding:* If categorical values like gender are used, they are converted into numeric format using encoding techniques.
+  - *Train-Test Split:* The dataset is divided into training and testing sets (e.g., 80% training, 20% testing) to evaluate model performance on unseen data.
   
 == Feature Extraction
 For real-time user input, Parselmouth is used to extract acoustic features like Jitter, Shimmer, HNR, RPDE, DFA, and PPE. The UCI Parkinson's dataset @parkinsons_uci_dataset already contains these pre-extracted features. These features help in detecting vocal instability associated with Parkinson’s.
@@ -265,11 +270,12 @@ The system displays the likelihood of Parkinson’s (e.g., “Low Risk”, “Hi
 - To extract acoustic features such as jitter, shimmer, and HNR and feed them into a machine learning model for accurate diagnosis.
 
 === System Scopes
-- Accepts user-recorded or uploaded voice samples.
-- Automatically extracts relevant features using
-- Processes data through a trained machine learning model to provide a prediction.
-- Displays prediction results through an easy-to-use web interface.
-- Useful for early screening, especially in remote areas.
+// - Accepts user-recorded or uploaded voice samples.
+// - Automatically extracts relevant features using
+// - Processes data through a trained machine learning model to provide a prediction.
+// - Displays prediction results through an easy-to-use web interface.
+// - Useful for early screening, especially in remote areas.
+The system should accept user-recorded or uploaded voice samples, making it accessible and flexible for different users. It automatically extracts relevant features from the audio and processes the data through a trained machine learning model to generate predictions. These prediction results are then displayed through a user-friendly web interface. This setup is particularly useful for early screening purposes, especially in remote or underserved areas where access to medical facilities may be limited.
 
 === Key Functionalities
 - Voice record/upload interface.
@@ -286,38 +292,39 @@ The system displays the likelihood of Parkinson’s (e.g., “Low Risk”, “Hi
 - It should show results with user-friendly feedback.
 
 === Non Functional Requirements
-- Performance: The system should return results within a few seconds.
-- Usability: Simple interface suitable for non-technical users.
-- Reliability: Consistent results for similar inputs.
-- Scalability: Should handle multiple users.//online host hanni ho vne
-- Portability: Can run on different operating systems and devices (desktop/mobile).
+// - *Performance:* The system should return results within a few seconds.
+// - *Usability:* Simple interface suitable for non-technical users.
+// - *Reliability:* Consistent results for similar inputs.
+// - *Scalability:* Should handle multiple users.//online host hanni ho vne
+// - *Portability:* Can run on different operating systems and devices (desktop/mobile).
+The system should deliver high performance by returning results within a few seconds. It must prioritize usability with a simple and intuitive interface that caters even to non-technical users. Reliability is essential, ensuring consistent results for similar inputs across sessions. To support growth, the system should be scalable, capable of handling multiple users simultaneously, especially if hosted online. Additionally, portability is important, allowing the system to run smoothly across various operating systems and devices, including both desktops and mobile platforms.
 
 == System Design
 ===   System Design/Architecture
 
 #figure(
-  image("system-architecture-diagram-rotated.png"),
+  image("img/system-design.png"),
   caption: [System Architecture Diagram]
 )
 
-===   Functionality Modeling Using Diagram
+===   Use Case Diagram
 #figure(
-  image("functionality-modeling-diagram.png", width: 120%),
-  caption: [Functionality Modeling Diagram]
+  image("img/use-case-diagram.png"),
+  caption: [Use Case Diagram]
 )
 
 
 ===   Process Modeling Diagram
 #figure(
-  image("process-modeling-diagram.png",  width: 180%),
+  image("img/process-modeling-diagram.png",  width: 180%),
   caption: [Process Modeling Diagram]
 )
 
-===   Sequence Diagram
-#figure(
-  image("sequence-diag.svg", width: 110%),
-  caption: [Sequence Diagram]
-)
+// ===   Sequence Diagram
+// #figure(
+//   image("img/sequence-diag.svg", width: 110%),
+//   caption: [Sequence Diagram]
+// )
 
 
 #pagebreak()
@@ -345,7 +352,8 @@ The development of this project will have no costs, since every tool used will b
 
 == Work Schedule
 #figure(
-  gantt(yaml("gantt.yaml")),
+  // gantt(yaml("gantt.yaml")),
+  image("img/gantt.png", width: 100%),
   caption: [Gantt Chart],
 )
 
