@@ -1,0 +1,12 @@
+{
+  "theme": "base",
+  "fontSize": 30,
+  "themeVariables": {
+    "primaryColor": "#fff",
+    "primaryTextColor": "#000",
+    "primaryBorderColor": "#000",
+    "lineColor": "#000",
+    "secondaryColor": "#fff",
+    "tertiaryColor": "#000"
+  }
+}
