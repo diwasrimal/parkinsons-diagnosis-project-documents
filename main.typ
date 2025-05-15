@@ -145,7 +145,9 @@ We are building a machine learning model that helps early diagnosis of the Parki
   }
 )
   
-= CHAPTER 1\ INTRODUCTION
+= CHAPTER 1
+= INTRODUCTION
+#counter(heading).update(1)
 == Background
 Parkinson’s Disease is a disorder that affects movement and speech. In the early stages, it can cause small changes in a person’s voice that are hard to notice. These voice changes can be used to detect the disease early. With the help of machine learning, we can analyze a person’s voice and find patterns that may indicate Parkinson’s.This project uses voice analysis and machine learning techniques to make early detection easier, faster, and more accessible.
 
@@ -200,7 +202,9 @@ The system is easy to use and accessible through a web interface, making it suit
 - *Microphone:* Decent-quality microphone (minimum 44.1 kHz sampling rate recommended) for recording clear voice samples
 
 #pagebreak()
-= CHAPTER 2 \ LITERATURE REVIEW
+= CHAPTER 2
+= LITERATURE REVIEW
+#counter(heading).update(2)
 
 == Voice as a Biomarker for Parkinson's Disease
 Parkinson's Disease (PD) affects approximately 90% of patients through voice and speech disorders, collectively termed dysphonia. These manifestations often appear in early disease stages, sometimes predating traditional motor symptoms by several years. Little et al. @little2009suitability were among the first to establish that vocal impairments in PD patients are detectable through acoustic analysis, noting that phonation is particularly affected due to the reduced control of laryngeal muscles. Tsanas et al. @tsanas2010accurate further demonstrated that voice deterioration correlates with disease progression, making vocal biomarkers valuable for both early detection and longitudinal monitoring.
@@ -224,7 +228,9 @@ Ensemble methods have shown promising results, with Sakar et al. @sakar2013colle
 More recently, deep learning approaches have gained prominence. Hemmerling et al. @hemmerling2016automatic implemented Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) directly on spectrograms and raw audio signals, eliminating the need for handcrafted feature extraction. Their deep neural network architecture achieved up to 95% accuracy on multiple datasets. Tracy et al. @tracy2020smartphone further refined these approaches for smartphone-based applications, enabling real-time PD screening with minimal computational resources.
 
 #pagebreak()
-= CHAPTER 3 \ METHODOLOGY
+= CHAPTER 3 
+= METHODOLOGY
+#counter(heading).update(3)
 
 == Data Collecting
 The data used in this research is taken from the UCI Parkinson's Dataset @parkinsons_uci_dataset. The original study presented feature extraction methods for general voice disorders The study included voice recordings from 31 people, including 23 people with Parkinson’s
@@ -262,7 +268,9 @@ The built ML model is utilized via an web interface, taking inputs from and web 
 The system displays the likelihood of Parkinson’s (e.g., “Low Risk”, “High Risk”) along with confidence scores. Optionally, display feature values for transparency.
 
 #pagebreak()
-= CHAPTER 4 \ SYSTEM ANALYSIS AND DESIGN
+= CHAPTER 4 
+= SYSTEM ANALYSIS AND DESIGN
+#counter(heading).update(4)
 == System Analysis
 
 === System Objectives
@@ -328,7 +336,9 @@ The system should deliver high performance by returning results within a few sec
 
 
 #pagebreak()
-= CHAPTER 5 \ EPILOGUE
+= CHAPTER 5 
+= EPILOGUE
+#counter(heading).update(5)
 == Expected Output
 An web application that can take audio sample of a person and determine whether the person has early symptoms of Parkinson's using a trained machine learning model having reasonable accuracy.
 
@@ -358,8 +368,12 @@ The development of this project will have no costs, since every tool used will b
 )
 
 #pagebreak()
-= CHAPTER 6\ REFERENCES
+= CHAPTER 6
+= REFERENCES
+#counter(heading).update(6)
 #bibliography("references.bib", style: "ieee", title: none)
 
 #pagebreak()
-= CHAPTER 7\ APPENDICES
+= CHAPTER 7
+= APPENDICES
+#counter(heading).update(7)
