@@ -117,7 +117,7 @@ We are building a machine learning model that helps early diagnosis of the Parki
 = ABBREVIATIONS
 #figure(
   table(
-    columns: 2,
+    columns: (0.3fr, 1fr), // todo: both columns equal? (1fr, 1fr)
     // note: yo list alphabetical order ma sorted hunu parxa hai - diwas
     "CNNs", "Convolutional Neural Networks",
     "DFA", "Detrended Fluctuation Analysis",
