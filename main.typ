@@ -373,7 +373,7 @@ The development of this project will have no costs, since every tool used will b
 #counter(heading).update(6)
 #bibliography("references.bib", style: "ieee", title: none)
 
-#pagebreak()
-= CHAPTER 7
-= APPENDICES
-#counter(heading).update(7)
+// #pagebreak()
+// = CHAPTER 7
+// = APPENDICES
+// #counter(heading).update(7)
