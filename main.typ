@@ -354,7 +354,7 @@ The development of this project will have no costs, since every tool used will b
 #align(center)[
   #figure(
     table(
-      columns: (auto, auto),
+      columns: (1fr, 1fr),
       align: center,
       table.header(
         [*Component*], [*Cost (Rs.)*],
