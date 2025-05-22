@@ -308,25 +308,31 @@ The system should accept user-recorded or uploaded voice samples, making it acce
 The system should deliver high performance by returning results within a few seconds. It must prioritize usability with a simple and intuitive interface that caters even to non-technical users. Reliability is essential, ensuring consistent results for similar inputs across sessions. To support growth, the system should be scalable, capable of handling multiple users simultaneously, especially if hosted online. Additionally, portability is important, allowing the system to run smoothly across various operating systems and devices, including both desktops and mobile platforms.
 
 == System Design
-===   System Design/Architecture
+=== System Architecture Diagram
 
 #figure(
   image("img/system-design.png"),
   caption: [System Architecture Diagram]
 )
 
-===   Use Case Diagram
+=== Use Case Diagram
 #figure(
   image("img/use-case-diagram.png"),
   caption: [Use Case Diagram]
 )
 
-
-===   Process Modeling Diagram
+=== Process Flow Chart
 #figure(
-  image("img/process-modeling-diagram.png",  width: 180%),
-  caption: [Process Modeling Diagram]
+  image("img/process-flow-chart.png", width: 180%),
+  caption: [Process Flow Chart]
 )
+
+
+// === Process Modeling Diagram
+// #figure(
+//   image("img/process-modeling-diagram.png",  width: 180%),
+//   caption: [Process Modeling Diagram]
+// )
 
 // ===   Sequence Diagram
 // #figure(
