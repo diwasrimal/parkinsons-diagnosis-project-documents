@@ -21,7 +21,9 @@
 
 
 #import "@preview/gantty:0.2.0": gantt
-#import "@preview/timeliney:0.2.1"
+// #import "@preview/timeliney:0.2.1"
+#import "@preview/fletcher:0.5.7" as fletcher: diagram, node, edge
+#import fletcher.shapes: diamond, ellipse, parallelogram
 
 #set page(
   paper: "a4", 
@@ -333,9 +335,46 @@ The proposed system's ER diagram is:
 === Process Flow Chart
 The proposed system's process flow chart is:
 #figure(
-  image("img/process-flow-chart.png", width: 180%),
-  caption: [Process Flow Chart]
+  block[
+    #set par(leading:0.64em)
+    #set text(size: 11pt)
+    #diagram(
+      node-stroke: 1pt,
+      node((0,0), [START], shape: ellipse),
+      edge("-|>"),
+      node((0,1), [Access web interface]),
+      edge("-|>"),
+      node((0,2), [Record or upload\ voice sample], shape: parallelogram),
+      edge("-|>"),
+      node((0,3), [Validate audio\ quality], shape: diamond, inset: 11pt),
+      edge("-|>", [Yes]),
+      edge("r", "-|>", [No]),
+      node((0,4), [Extract acoustic features]),
+      edge("d", "-|>"),
+      node((1,3), [Re-prompt for voice sample]),
+      edge("u,l", "-|>"),
+      node((0,5), [Feed sample to trained\ ML model]),
+      edge("-|>"),
+      node((0,6), [Generate\ prediction score]),
+      edge("-|>"),
+      node((0,7), [Display results], shape: parallelogram),
+      edge("-|>"),
+      node((0,8), [Offer to save\ report], shape: diamond, inset: 11pt),
+      edge("r", "-|>", [Yes]),
+      edge("-|>", [No]),
+      node((0,9), [END], shape: ellipse),
+      node((1,8), [Store report in system]),
+      edge("d,l", "-|>"),
+    )
+  ],
+  caption: [Process Flow Chart],
+  gap: 1.5em,
 )
+
+// #figure(
+//   image("img/process-flow-chart.png", width: 180%),
+//   caption: [Process Flow Chart]
+// )
 
 #pagebreak()
 = CHAPTER 5 
