@@ -1,0 +1,17 @@
+
+graph TD
+    %% Core components with simplified flow
+    User([User]) --> |Voice Input| WebApp[Web Application]
+    WebApp --> FE[Feature Extractor]
+    FE --> |Voice Features| ML[ML Model]
+    ML --> |Prediction| WebApp
+    
+    %% Key features extracted - simplified
+    FE --> |Extracts| Features[Acoustic Features<br>Jitter, Shimmer, HNR, etc.]
+    
+    %% Data sources - simplified
+    Dataset[(UCI Parkinson's<br>Dataset)] --> |Training| ML
+    
+    %% Storage - simplified
+    ML --> |Stores Results| DB[(Database)]
+    DB --> WebApp
