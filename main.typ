@@ -226,7 +226,7 @@ Nonlinear dynamics measures, introduced by @little2009suitability, have proven p
 Spectral and cepstral features, including Mel-frequency cepstral coefficients (MFCCs), formant frequencies, and spectral flux, have been extensively studied by @vaiciukynas2017detecting. These features capture the changes in vocal tract configuration and resonance characteristics affected by PD.
 
 == Machine Learning Approaches for PD Classification
-The evolution of machine learning techniques has significantly enhanced PD detection accuracy from voice recordings. Early studies predominantly employed conventional classifiers such as Support Vector Machines (SVM), Random Forests, and k-Nearest Neighbors. @little2009suitability achieved 91.4% classification accuracy using SVM with a kernel-based approach on their dysphonia feature set.
+The evolution of machine learning techniques has significantly enhanced PD detection accuracy from voice recordings. Early studies predominantly employed conventional classifiers such as SVM, Random Forests, and K-Nearest Neighbors. @little2009suitability achieved 91.4% classification accuracy using SVM with a kernel-based approach on their dysphonia feature set.
 
 Ensemble methods have shown promising results. @sakar2013collection demonstrated that combining multiple classifiers improves robustness against variability in voice recordings. Their approach using bootstrap aggregating (bagging) with decision trees achieved accuracy rates exceeding 92%.
 
@@ -239,8 +239,7 @@ More recently, deep learning approaches have gained prominence. @hemmerling2016a
 
 == Data Collecting
 The data used in this research is taken from the UCI Parkinson's Dataset @parkinsons_uci_dataset. The original study presented feature extraction methods for general voice disorders The study included voice recordings from 31 people, including 23 people with Parkinson’s
-Disease (PD) (16 males and 7 females) and eight Healthy Controls (males = 3 and females = 5). The dataset contains 195 records, 24 columns including a series of
-biomedical voice measurements.
+Disease (16 males and 7 females) and eight Healthy Controls (3 males and 5 females). The dataset contains 195 records, 24 columns including a series of biomedical voice measurements.
 
 == Data Preprocessing
 Before training the machine learning model, the collected dataset undergoes several preprocessing steps to ensure data quality and model performance:
@@ -254,13 +253,7 @@ For real-time user input, Parselmouth is used to extract acoustic features like 
 
 == Model Building
 
-First we will train models using ML algorithms like K-nearest neighbors,  Support Vector Machine (SVM),  Random Forest,  Decision tree,  Logistic Regression. We then can use cross-validation techniques to evaluate the model accuracy and then select the best-performing model based on metrics like accuracy, precision, recall and F1-score. Python Libraries scikit-learn, numpy, matplotlib, pandas are used for model building and visualization.
-
-// - Train ML models such as K-nearest neighbors,  Support Vector Machine (SVM),  Random Forest,  Decision tree,  Logistic Regression.
-// - Use cross-validation to evaluate model accuracy
-// - Select the best-performing model based on metrics (accuracy, precision, recall).
-// - Python Libraries scikit-learn, numpy, matplotlib, pandas are used for model building and visualization.
-
+First we will train models using ML algorithms like K-nearest neighbors, SVM,  Random Forest,  Decision tree,  Logistic Regression. We then can use cross-validation techniques to evaluate the model accuracy and then select the best-performing model based on metrics like accuracy, precision, recall and F1-score. Python Libraries scikit-learn, numpy, matplotlib, pandas are used for model building and visualization.
 
 ==  System Integration
 
@@ -314,25 +307,31 @@ The system should deliver high performance by returning results within a few sec
 
 == System Design
 === System Architecture Diagram
-
+The proposed system's architecture diagram is:
 #figure(
   image("img/system-architecture.png"),
   caption: [System Architecture Diagram]
 )
 
+#pagebreak()
 === Use Case Diagram
+The proposed system's use case diagram is:
 #figure(
   image("img/use-case-diagram.svg"),
   caption: [Use Case Diagram]
 )
 
+#pagebreak()
 === Entity Relationship Diagram
+The proposed system's ER diagram is:
 #figure(
   image("img/er-diagram.svg", height: 90%),
   caption: [Entity Relationship Diagram]
 )
 
+#pagebreak()
 === Process Flow Chart
+The proposed system's process flow chart is:
 #figure(
   image("img/process-flow-chart.png", width: 180%),
   caption: [Process Flow Chart]
