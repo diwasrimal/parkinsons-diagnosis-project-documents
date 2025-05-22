@@ -57,8 +57,14 @@
   #it
 ]
 
+// Figures are numbered according to the section they are in
 #set figure(numbering: num => 
   (counter(heading).get() + (num,)).map(str).join("."))
+
+// Table captions at top
+#show figure.where(
+  kind: table
+): set figure.caption(position: top)
 
 // Cover page
 #align(center+horizon)[
