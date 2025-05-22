@@ -1,0 +1,15 @@
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TD
+    START([START]) --> A[Access web interface]
+    A --> B[/Record or upload voice sample/]
+    B --> C{Validate audio quality}
+    C --> |Valid| D[Extract acoustic features]
+    C --> |Invalid| E[Reprompt for voice sample]
+    E --> B
+    D --> F[Feed sample to trained ML model]
+    F --> G[Generate prediction score]
+    G --> H[/Display results/]
+    H --> I{Offer to save report}
+    I --> |Yes| J[Store report in system]
+    I --> |No| END
+    J --> END([END])
