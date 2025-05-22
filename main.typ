@@ -136,6 +136,7 @@ We are building a machine learning model that helps early diagnosis of the Parki
     "PPE", "Pitch Period Entropy",
     "RNNs", "Recurrent Neural Networks",
     "RPDE", "Recurrence Period Density Entropy",
+    "SMOTE", "Synthetic Minority Over-sampling Technique",
     "SVM", "Support Vector Machine",
     "UCI", "University of California, Irvine",
   ),
@@ -239,19 +240,23 @@ More recently, deep learning approaches have gained prominence. @hemmerling2016a
 = METHODOLOGY
 #counter(heading).update(3)
 
-== Data Collecting
+== Project Workflow
+The overall methodology of the project can be summarized by the workflow diagram below:
+#figure(
+  image("img/workflow-diagram.png", width: 170%),
+  caption: [Project Workflow Diagram]
+)
+
+
+== Data Collection
 The data used in this research is taken from the UCI Parkinson's Dataset @parkinsons_uci_dataset. The original study presented feature extraction methods for general voice disorders The study included voice recordings from 31 people, including 23 people with Parkinson’s
 Disease (16 males and 7 females) and eight Healthy Controls (3 males and 5 females). The dataset contains 195 records, 24 columns including a series of biomedical voice measurements.
 
 == Data Preprocessing
-Before training the machine learning model, the collected dataset undergoes several preprocessing steps to ensure data quality and model performance:
-  - *Handling Missing Values:* Checked for any missing or null values in the dataset and applied imputation techniques if needed.
-  - *Normalization/Scaling:* Since the dataset contains features with different units and ranges, normalization (e.g., Min-Max Scaling or Standardization) is applied to bring all features to a similar scale, improving model performance.
-  - *Label Encoding:* If categorical values like gender are used, they are converted into numeric format using encoding techniques.
-  - *Train-Test Split:* The dataset is divided into training and testing sets (e.g., 80% training, 20% testing) to evaluate model performance on unseen data.
+Before training the machine learning model, the dataset undergoes essential preprocessing steps to enhance data quality and improve model performance. Missing or null values are addressed using appropriate imputation techniques. To ensure consistent feature scaling, normalization methods such as Min-Max Scaling or Standardization are applied, especially when features have varying units or ranges. Categorical variables, like gender, are converted into numerical form using label encoding. Finally, the dataset is split into training and testing sets, typically 70% for training and 30% for testing to evaluate how well the model performs on unseen data.
   
 == Feature Extraction
-For real-time user input, Parselmouth is used to extract acoustic features like Jitter, Shimmer, HNR, RPDE, DFA, and PPE. The UCI Parkinson's Dataset @parkinsons_uci_dataset already contains these pre-extracted features. These features help in detecting vocal instability associated with Parkinson’s.
+For real-time user input, Parselmouth is used to extract acoustic features like Jitter, Shimmer, HNR, RPDE, DFA, and PPE. The UCI Parkinson's Dataset @parkinsons_uci_dataset already contains these pre-extracted features. SMOTE techniques can be used to generate samples of minority class in case of imbalance.  These features help in detecting vocal instability associated with Parkinson’s.
 
 == Model Building
 
@@ -266,6 +271,7 @@ The built ML model is utilized via an web interface, taking inputs from and web 
 
 == Output
 The system displays the likelihood of Parkinson’s (e.g., “Low Risk”, “High Risk”) along with confidence scores. Optionally, display feature values for transparency.
+
 
 #pagebreak()
 = CHAPTER 4 

@@ -1,0 +1,19 @@
+graph TD
+    A[Parkinson's Disease Dataset] --> B[Data Preprocessing]
+    B --> |Split 70%| C[Training Data]
+    B --> |Split 30%| D[Test Data]
+    C --> E[Feature Selection]
+    D --> E
+    E --> F[SMOTE]
+    F --> G[GridSearchCV]
+    G --> |Training| H[ML Model]
+    %% H --> I[Evaluate Model Performance]
+    %% I --> J[HC People]
+    %% I --> K[PD People]
+
+    AA[UI Design] --> BB[Flask/Streamlit Web Application]
+    H --> |Integrate into backend| BB
+    CC[Database Design] --> BB
+
+
+    BB --> DD[Final Product]
