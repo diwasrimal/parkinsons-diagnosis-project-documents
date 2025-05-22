@@ -160,7 +160,7 @@ Parkinson’s Disease is a disorder that affects movement and speech. In the ear
 Parkinson’s Disease is often diagnosed at a later stage because early symptoms are difficult to detect.Traditional methods can be costly, time-consuming, and require a clinical setting. There is a need for a simple, low-cost, and non-invasive method to detect Parkinson’s at an early stage. This project aims to solve that problem by using voice analysis and machine learning to identify early signs of the disease.
 
 ==  Objectives
-The objectives of this project are as follows:
+The objectives of this project are:
 - To build an intelligent system that takes voice input, extracts acoustic features (like jitter, shimmer, and HNR), and uses machine learning to predict the likelihood of Parkinson’s Disease.
 - To enable people to check early stages of Parkinson's Disease in remote areas where access to medical facilities might be limited.
 
