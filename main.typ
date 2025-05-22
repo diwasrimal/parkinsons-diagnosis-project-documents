@@ -102,7 +102,6 @@ We are building a machine learning model that helps early diagnosis of the Parki
 
 #pagebreak()
 = TABLE OF CONTENTS
-
 #outline(title: none)
 
 #pagebreak()
@@ -132,7 +131,7 @@ We are building a machine learning model that helps early diagnosis of the Parki
     "SVM", "Support Vector Machine",
     "UCI", "University of California, Irvine",
   ),
-  caption: "Table of abbreviations",
+  caption: "Abbreviations table",
 )
 
 #pagebreak()
@@ -311,14 +310,20 @@ The system should deliver high performance by returning results within a few sec
 === System Architecture Diagram
 
 #figure(
-  image("img/system-design.png"),
+  image("img/system-architecture.png"),
   caption: [System Architecture Diagram]
 )
 
 === Use Case Diagram
 #figure(
-  image("img/use-case-diagram.png"),
+  image("img/use-case-diagram.svg"),
   caption: [Use Case Diagram]
+)
+
+=== Entity Relationship Diagram
+#figure(
+  image("img/er-diagram.svg", height: 90%),
+  caption: [Entity Relationship Diagram]
 )
 
 === Process Flow Chart
@@ -326,20 +331,6 @@ The system should deliver high performance by returning results within a few sec
   image("img/process-flow-chart.png", width: 180%),
   caption: [Process Flow Chart]
 )
-
-
-// === Process Modeling Diagram
-// #figure(
-//   image("img/process-modeling-diagram.png",  width: 180%),
-//   caption: [Process Modeling Diagram]
-// )
-
-// ===   Sequence Diagram
-// #figure(
-//   image("img/sequence-diag.svg", width: 110%),
-//   caption: [Sequence Diagram]
-// )
-
 
 #pagebreak()
 = CHAPTER 5 

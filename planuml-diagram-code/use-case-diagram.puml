@@ -1,0 +1,58 @@
+@startuml
+left to right direction
+<style>
+element {
+    BackgroundColor: white;
+    FontColor: black;
+    FontSize: 20;
+    LineColor: black;
+    LineThickness: 1px;
+}
+</style>
+' Define the actors
+actor "User" as user
+actor "System Administrator" as admin
+actor "Healthcare Professional" as doctor
+
+' Define the system boundary
+rectangle "Parkinson's Disease Detection System" {
+  ' Main use cases
+  usecase "Record Voice Sample" as UC1
+  usecase "Upload Voice Sample" as UC2
+  usecase "Extract Voice Features" as UC3
+  usecase "View Prediction Results" as UC5
+  usecase "Save Results" as UC6
+  usecase "Manage User Accounts" as UC7
+  usecase "Train/Update ML Model" as UC8
+  usecase "View Detailed Analysis" as UC9
+  usecase "Export Results" as UC10
+  usecase "Access Historical Data" as UC11
+  
+  ' Relationships
+  user --> UC1
+  user --> UC2
+  user --> UC5
+  user --> UC6
+  user --> UC11
+  
+  UC1 ..> UC3 : <<include>>
+  UC2 ..> UC3 : <<include>>
+  UC3 ..> UC5 : <<include>>
+  
+  admin --> UC7
+  admin --> UC8
+  
+  doctor --> UC9
+  doctor --> UC10
+  doctor --> UC11
+  
+  ' Extensions
+  usecase "Provide Guidance for Voice Recording" as UCE1
+  usecase "Validate Audio Quality" as UCE2
+  
+  UC1 <.. UCE1 : <<extend>>
+  UC1 <.. UCE2 : <<extend>>
+  UC2 <.. UCE2 : <<extend>>
+}
+
+@enduml

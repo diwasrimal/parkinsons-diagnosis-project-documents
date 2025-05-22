@@ -1,0 +1,69 @@
+@startchen
+left to right direction
+
+<style>
+element {
+    BackgroundColor: white;
+    FontColor: black;
+    FontSize: 20;
+    LineColor: black;
+    LineThickness: 1px;
+}
+</style>
+
+entity USER {
+    user_id: INT <<key>>
+    name {
+        fname: STRING
+        lname: STRING
+    }
+    email: STRING
+}
+entity VOICE_SAMPLE <<weak>> {
+    sample_id: INT <<key>>
+    user_id: INT <<FK>>
+    audio_data: blob
+    recorded_at: DATETIME
+}
+entity VOICE_FEATURE <<weak>> {
+    feature_id: INT <<key>>
+    sample_id: INT <<FK>>
+    jitter: FLOAT
+    hnr: FLOAT
+    shimmer: FLOAT
+}
+entity PREDICTION <<weak>> {
+    prediction_id: INT <<key>>
+    feature_id: INT <<FK>>
+    pd_probability: FLOAT
+    result: STRING
+}
+entity REPORT <<weak>> {
+    report_id: INT <<key>>
+    prediction_id: INT <<FK>>
+    generated_at: DATETIME
+}
+
+' Relationships
+relationship "UPLOADS/RECORDS" as UPLOADS {
+}
+UPLOADS =1= USER
+UPLOADS -N- VOICE_SAMPLE
+
+relationship PRODUCES {
+}
+PRODUCES =1= VOICE_SAMPLE
+PRODUCES =1= VOICE_FEATURE
+
+relationship ANALYZED_BY {
+}
+ANALYZED_BY =1= VOICE_FEATURE
+ANALYZED_BY =1= PREDICTION
+
+relationship GENERATES {
+}
+GENERATES =1= PREDICTION
+GENERATES -N- REPORT
+
+
+@endchen
